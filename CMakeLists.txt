@@ -16,6 +16,7 @@ qt_add_executable(app2GIS_test
     sources/qml/TextOccurrences/text_occurrences.h sources/qml/TextOccurrences/text_occurrences.cpp
     resources/qml/qmldir
     resources/qml/qtquickcontrols2.conf
+    gitignore
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
