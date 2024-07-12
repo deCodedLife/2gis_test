@@ -1,0 +1,9 @@
+singleton Settings Settings.qml
+singleton AppLoader Base/AppLoader.qml
+singleton AppHeader States/AppHeader.qml
+
+AppWindow Base/AppWindow.qml
+AppTopBar Components/AppTopBar.qml
+AppPage Base/AppPage.qml
+PageLoader Base/PageLoader.qml
+PopupRectangle Base/PopupRectangle.qml

@@ -1,0 +1,33 @@
+import QtQuick
+import QtQuick.Controls.Material
+
+import "."
+import ".."
+import "../States"
+
+Item
+{
+    id: page
+    clip: true
+
+    signal afterInit()
+    property int defaultHeight: 0
+    property bool isLoaded: true
+
+    Component.onCompleted: {
+        AppHeader.options = []
+        AppHeader.color = Material.accentColor
+        AppHeader.title = ""
+        AppHeader.subtitle = ""
+        AppHeader.isVisible = true
+        Settings.currentTheme = Material.Dark
+
+        defaultHeight = height
+        afterInit()
+    }
+
+    onHeightChanged: {
+        // if ( height > defaultHeight && isLoaded ) AppLoader.reloadFlickable()
+        // AppLoader.pageHeight = height
+    }
+}

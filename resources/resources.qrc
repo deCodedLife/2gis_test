@@ -1,0 +1,19 @@
+<RCC>
+    <qresource prefix="/">
+        <file>qml/Main.qml</file>
+        <file>qml/Base/AppWindow.qml</file>
+        <file>qml/Base/AppLoader.qml</file>
+        <file>qml/Base/PopupRectangle.qml</file>
+        <file>qml/Settings.qml</file>
+        <file>qml/States/AppHeader.qml</file>
+        <file>qml/Pages/HomePage.qml</file>
+        <file>qml/Base/AppPage.qml</file>
+        <file>qml/Components/AppTopBar.qml</file>
+        <file>qml/Base/PageLoader.qml</file>
+        <file>qml/qmldir</file>
+        <file>qml/qtquickcontrols2.conf</file>
+        <file>Images/add.svg</file>
+        <file>Images/play.svg</file>
+        <file>Images/back.svg</file>
+    </qresource>
+</RCC>
