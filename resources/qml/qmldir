@@ -1,6 +1,7 @@
 singleton Settings Settings.qml
 singleton AppLoader Base/AppLoader.qml
 singleton AppHeader States/AppHeader.qml
+singleton BottomSheet States/BottomSheet.qml
 
 AppWindow Base/AppWindow.qml
 AppTopBar Components/AppTopBar.qml

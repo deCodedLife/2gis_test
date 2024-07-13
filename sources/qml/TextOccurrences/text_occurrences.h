@@ -1,5 +1,4 @@
-#ifndef TEXTOCCURRENCES_H
-#define TEXTOCCURRENCES_H
+#pragma once
 
 #include <QObject>
 
@@ -11,5 +10,3 @@ public:
 
 signals:
 };
-
-#endif // TEXTOCCURRENCES_H

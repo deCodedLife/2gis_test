@@ -15,5 +15,10 @@
         <file>Images/add.svg</file>
         <file>Images/play.svg</file>
         <file>Images/back.svg</file>
+        <file>qml/Pages/WelcomeScreen.qml</file>
+        <file>qml/Pages/Options.qml</file>
+        <file>Images/tune.svg</file>
+        <file>qml/Base/AppBottomSheet.qml</file>
+        <file>qml/States/BottomSheet.qml</file>
     </qresource>
 </RCC>

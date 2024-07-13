@@ -1,23 +1,20 @@
-set(QML_SOURCES "")
-
-
 add_subdirectory(TextOccurrences)
 
+get_property(TEXT_OCCURR GLOBAL PROPERTY TEXT_OCCURR)
+
 add_library(
-    QML STATIC
-    ${QML_SOURCES}
+    QmlDev STATIC
+    ${TEXT_OCCURR}
 )
 
 target_link_libraries(
-    QML PUBLIC
+    QmlDev PUBLIC
     Qt6::Core
     Qt6::Gui
-    PRIVATE Core
 )
 
 
 target_include_directories(
-    QML PUBLIC
+    QmlDev PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}/../core
-    ${INCLUDES}
 )

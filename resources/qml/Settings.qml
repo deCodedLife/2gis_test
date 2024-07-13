@@ -26,5 +26,5 @@ QtObject
 
     property int currentTheme: Material.Dark
     property int currentAccent: Material.Green
-    property int defaultTextColor: "white"
+    property string defaultTextColor: "white"
 }

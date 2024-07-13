@@ -11,6 +11,7 @@ QtObject {
 
     /** {
       *   "icon": "",
+      *   "useEffect": true,
       *   "action" () => {}
       * }
     */
@@ -24,9 +25,9 @@ QtObject {
         isVisible = true
     }
 
-    function addOption( icon, action ) {
+    function addOption( icon, action, useEffect = false ) {
         let newObject = options ?? []
-        newObject.push({ "icon": icon, "action": action })
+        newObject.push({ "icon": icon, "action": action, "useEffect": useEffect })
 
         options = []
         options = newObject

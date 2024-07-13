@@ -5,6 +5,7 @@ import QtQuick.Controls.Material
 
 import "."
 import "Base"
+import "States"
 
 AppWindow
 {
@@ -15,6 +16,6 @@ AppWindow
     y: Settings.is_mobile ? 0 : (Screen.height / 2) - (height / 2)
 
     onAfterInit: {
-        AppLoader.loadPage( "Pages/HomePage.qml" )
+        AppLoader.loadPage( "Pages/WelcomeScreen.qml" )
     }
 }

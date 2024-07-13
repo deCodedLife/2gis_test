@@ -37,6 +37,10 @@ ApplicationWindow
         }
     }
 
+    AppBottomSheet {
+        anchors.fill: parent
+    }
+
     Item {
         id: topItem
         width: parent.width

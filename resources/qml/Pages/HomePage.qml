@@ -1,4 +1,5 @@
 import QtQuick
+import QtCharts
 import QtQuick.Layouts
 import QtQuick.Controls.Material
 
@@ -9,48 +10,36 @@ import "../States"
 
 AppPage {
 
-    property string readme:
-        "Данное приложение создано для нахождения вхождения слов в тексте. " +
-        "Чтобы использовать программу необходимо выбрать любой текстовый файл " +
-        "с расширением .txt Вы можете воспользоваться генератором текста " +
-        "fish-text.ru"
-
-    ColumnLayout
-    {
+    ColumnLayout {
         anchors.fill: parent
         anchors.margins: {
             left: Settings.minimalMargin
             right: Settings.minimalMargin
         }
 
-        Text {
+        ChartView {
             Layout.fillWidth: true
-            Layout.alignment: Qt.AlignVCenter
-            horizontalAlignment: Text.AlignHCenter
+            height: 400
 
-            text: readme
-            wrapMode: Text.WrapAnywhere
-            font.pointSize: Settings.h3
-            color: Settings.defaultTextColor
+            title: "Вхождения слов"
+            legend.alignment: Qt.AlignBottom
+            antialiasing: true
+
+            // BarSeries {
+            //     id: mySeries
+            //     axisX: BarCategoryAxis { categories: ["2007", "2008", "2009", "2010", "2011", "2012" ] }
+            //     BarSet { label: "Bob"; values: [2, 2, 3, 4, 5, 6] }
+            //     BarSet { label: "Susan"; values: [5, 1, 2, 4, 1, 7] }
+            //     BarSet { label: "James"; values: [3, 5, 8, 13, 5, 8] }
+            // }
         }
-
-        Text {
-            Layout.fillWidth: true
-            horizontalAlignment: Text.AlignHCenter
-
-            text: "Чтобы продолжить нажмите на экран"
-            wrapMode: Text.WrapAnywhere
-            font.pointSize: Settings.h4
-            color: Settings.defaultTextColor
-        }
-    }
-
-    MouseArea {
-        anchors.fill: parent
-        onClicked: AppLoader.openEffect( () => AppLoader.loadPage( "Pages/Words.qml" ) )
     }
 
     onAfterInit: {
-        AppHeader.hide()
+        AppHeader.show()
+        AppHeader.color = "transparent"
+        AppHeader.title = ""
+        AppHeader.addOption( "tune.svg", () => BottomSheet.open() )
+        BottomSheet.loadPage( "Pages/Options.qml" )
     }
 }

@@ -119,7 +119,18 @@ Rectangle {
                         rightPadding: 0
                         onClicked: {
                             icon.color = Material.accentColor
-                            AppLoader.openEffect( modelData[ "action" ] )
+                            if ( modelData[ "useEffect" ] ) AppLoader.openEffect( modelData[ "action" ] )
+                            else modelData[ "action" ]()
+                            defaultColor.start()
+                        }
+
+                        ColorAnimation on icon.color {
+                            Material.theme: Settings.currentTheme
+                            id: defaultColor
+                            to: Material.primaryTextColor
+                            running: false
+                            duration: 300
+                            easing.type: Easing.InOutQuart
                         }
                     }
                 }
