@@ -1,6 +1,0 @@
-set(__QT_DEPLOY_TARGET_Core_FILE /Users/codedlife/QtProjects/2GIS_test/build/Qt_6_7_2_for_macOS-Debug/sources/core/libCore.a)
-set(__QT_DEPLOY_TARGET_Core_TYPE STATIC_LIBRARY)
-set(__QT_DEPLOY_TARGET_Qml_FILE /Users/codedlife/QtProjects/2GIS_test/build/Qt_6_7_2_for_macOS-Debug/sources/qml/libQml.a)
-set(__QT_DEPLOY_TARGET_Qml_TYPE STATIC_LIBRARY)
-set(__QT_DEPLOY_TARGET_app2GIS_test_FILE /Users/codedlife/QtProjects/2GIS_test/build/Qt_6_7_2_for_macOS-Debug/app2GIS_test.app/Contents/MacOS/app2GIS_test)
-set(__QT_DEPLOY_TARGET_app2GIS_test_TYPE EXECUTABLE)
