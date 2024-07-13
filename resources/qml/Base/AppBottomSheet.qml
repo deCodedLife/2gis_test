@@ -28,6 +28,7 @@ Item {
     MouseArea {
         anchors.fill: parent
         enabled: background.state === "opened"
+        propagateComposedEvents: true
         onClicked: {
             background.state = "closed"
             draggablePage.state = "closed"
@@ -105,7 +106,7 @@ Item {
                         PropertyChanges {
                             target: draggablePage
                             radius: 20
-                            y: body.height - 380
+                            y: body.height - 390
                         }
                     }
                 ]
@@ -148,7 +149,7 @@ Item {
                            drag.target: draggablePage
                            drag.axis: Drag.YAxis
                            drag.maximumY: body.height - dragHandlerArea.height
-                           drag.minimumY: body.height - 400
+                           drag.minimumY: body.height - 390
 
                            onPressed: dY = draggablePage.y
                            onReleased: {
@@ -171,9 +172,10 @@ Item {
 
                         contentWidth: draggablePage.width
                         contentHeight: BottomSheet.pageHeight
+                        interactive: false
 
                         Layout.fillWidth: true
-                        height: 400 //body.height
+                        height: 340 //body.height
 
                         Connections {
                             target: BottomSheet
@@ -182,8 +184,11 @@ Item {
 
                         Loader {
                             id: loader
+
+                            property bool isBottomSheet: true
+
                             width: draggablePage.width
-                            height: 400  // body.height
+                            height: 340
                             source: [ QML, BottomSheet.currentPage ].join("/")
                             onSourceChanged: flickable.contentY = 0
                         }

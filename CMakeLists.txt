@@ -7,7 +7,7 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 
 
-find_package(Qt6 6.4 REQUIRED COMPONENTS Quick Core Gui)
+find_package(Qt6 6.7 REQUIRED COMPONENTS Quick ChartsQml Charts)
 
 qt_standard_project_setup()
 qt_add_executable(app2GIS_test
@@ -15,6 +15,7 @@ qt_add_executable(app2GIS_test
     ${CMAKE_CURRENT_SOURCE_DIR}/resources/resources.qrc
     sources/core/text_parser.h sources/core/text_parser.cpp
     sources/core/runnable_wrapper.h sources/core/runnable_wrapper.cpp
+    sources/core/types.h
 )
 
 
@@ -40,6 +41,8 @@ add_subdirectory(sources)
 target_link_libraries(
     app2GIS_test
     PRIVATE Qt6::Quick
+    PRIVATE Qt6::Charts
+    PRIVATE Qt6::ChartsQml
 )
 
 include(GNUInstallDirs)

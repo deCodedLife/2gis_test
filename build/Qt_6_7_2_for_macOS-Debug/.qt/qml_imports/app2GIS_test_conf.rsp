@@ -1,0 +1,9 @@
+-rootPath
+/Users/codedlife/QtProjects/2GIS_test
+-cmake-output
+-output-file
+/Users/codedlife/QtProjects/2GIS_test/build/Qt_6_7_2_for_macOS-Debug/.qt/qml_imports/app2GIS_test_conf.cmake
+-importPath
+/Users/codedlife/QtProjects/2GIS_test/build/Qt_6_7_2_for_macOS-Debug
+-importPath
+/Users/codedlife/Qt/6.7.2/macos/./qml

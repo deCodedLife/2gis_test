@@ -1,3 +1,4 @@
+add_subdirectory(core)
 add_subdirectory(qml)
 
 target_include_directories(
@@ -8,5 +9,6 @@ target_include_directories(
 
 target_link_libraries(
     app2GIS_test
-    PRIVATE QmlDev
+    PRIVATE Qml
+    PRIVATE Core
 )

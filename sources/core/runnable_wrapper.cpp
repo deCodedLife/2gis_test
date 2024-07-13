@@ -1,5 +1,9 @@
 #include "runnable_wrapper.h"
 
-RunnableWrapper::RunnableWrapper(QObject *parent)
-    : QObject{parent}
-{}
+
+
+template<typename T, typename A>
+RunnableWrapper<T, A>::RunnableWrapper(std::function<T (A)>)
+{
+
+}

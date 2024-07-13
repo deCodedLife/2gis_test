@@ -15,6 +15,9 @@ AppPage {
         "с расширением .txt Вы можете воспользоваться генератором текста " +
         "fish-text.ru"
 
+    height: pageHeight
+    pageHeight: parent.height
+
     ColumnLayout
     {
         anchors.fill: parent
@@ -47,7 +50,7 @@ AppPage {
 
     MouseArea {
         anchors.fill: parent
-        onClicked: { AppLoader.openEffect( () => AppLoader.loadPage( "Pages/HomePage.qml" ) ) }
+        onClicked: { AppLoader.openEffect( () => AppLoader.loadPage( "Pages/HomePage.qml", true ) ) }
     }
 
     onAfterInit: {

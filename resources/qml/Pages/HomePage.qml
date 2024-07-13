@@ -10,7 +10,14 @@ import "../States"
 
 AppPage {
 
+    property list<string> words: [ "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015" ]
+
+    Material.theme: Settings.currentTheme
+    Material.accent: Settings.currentAccent
+    pageHeight: page.implicitHeight
+
     ColumnLayout {
+        id: page
         anchors.fill: parent
         anchors.margins: {
             left: Settings.minimalMargin
@@ -19,19 +26,25 @@ AppPage {
 
         ChartView {
             Layout.fillWidth: true
-            height: 400
+            height: words.length * 50
 
             title: "Вхождения слов"
             legend.alignment: Qt.AlignBottom
             antialiasing: true
 
-            // BarSeries {
-            //     id: mySeries
-            //     axisX: BarCategoryAxis { categories: ["2007", "2008", "2009", "2010", "2011", "2012" ] }
-            //     BarSet { label: "Bob"; values: [2, 2, 3, 4, 5, 6] }
-            //     BarSet { label: "Susan"; values: [5, 1, 2, 4, 1, 7] }
-            //     BarSet { label: "James"; values: [3, 5, 8, 13, 5, 8] }
-            // }
+            HorizontalBarSeries {
+
+                id: mySeries
+                axisY: BarCategoryAxis { categories: words }
+                BarSet { label: "Количество"; values: [ 2, 3, 4, 5, 6, 2, 3, 4, 5, 6, 2, 3, 4, 5, 6 ] }
+            }
+        }
+
+        Button {
+            Layout.fillWidth: true
+            flat: true
+            highlighted: true
+            text: "Старт"
         }
     }
 

@@ -26,6 +26,7 @@ ApplicationWindow
 
     ColumnLayout {
         anchors.fill: parent
+        anchors.bottomMargin: BottomSheet.isVisible ? 24 : 0
 
         AppTopBar {
             Layout.fillWidth: true
@@ -38,6 +39,7 @@ ApplicationWindow
     }
 
     AppBottomSheet {
+        id: bottomSheet
         anchors.fill: parent
     }
 

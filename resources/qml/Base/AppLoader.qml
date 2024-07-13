@@ -10,13 +10,15 @@ QtObject
     property Item imageLayout: null
     property var root: null
 
+    property bool isFlickable: false
     property double pageHeight: 0
     property var pageContent: [{}]
 
     property var pagesDom: [ "Pages/HomePage.qml" ]
     property string currentPage: "Pages/HomePage.qml"
 
-    function loadPage( page ) {
+    function loadPage( page, flickable = false ) {
+        isFlickable = flickable
         pageHeight = 0
         currentPage = page
         pagesDom.push( page )

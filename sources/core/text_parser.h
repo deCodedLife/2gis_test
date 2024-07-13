@@ -1,10 +1,10 @@
-#ifndef TEXTPARSER_H
-#define TEXTPARSER_H
+#pragma once
+
+#include "types.h"
 
 class TextParser
 {
 public:
     TextParser();
+    QHash<QString, uint> parseText(QString);
 };
-
-#endif // TEXTPARSER_H
