@@ -23,7 +23,7 @@ AppPage
             let file = selectedFile.toString()
             if ( Qt.platform.os === "windows" ) file = file.split( "file:///" )[ 1 ]
             else file = file.split( "file://" )[ 1 ]
-            console.log( file )
+            Settings.selectedFile = file
         }
     }
 
@@ -39,8 +39,22 @@ AppPage
             Layout.fillWidth: true
             Layout.alignment: Qt.AlignTop
 
-            text: "15"
-            placeholderText: "Максимальное кол-во слов"
+            validator: IntValidator {
+                bottom: 0
+                top: 20
+            }
+
+            Material.accent: acceptableInput ?
+                                Settings.currentAccent :
+                                Material.Red
+
+            text: Settings.wordsCount.toString()
+            placeholderText: "Кол-во слов (макс 20)"
+
+            onTextChanged: {
+                if (!acceptableInput) return
+                Settings.wordsCount = parseInt(text)
+            }
         }
 
         Button {
@@ -53,10 +67,5 @@ AppPage
 
             onClicked: fileDialog.open()
         }
-
-
-    }
-
-    onAfterInit: {
     }
 }

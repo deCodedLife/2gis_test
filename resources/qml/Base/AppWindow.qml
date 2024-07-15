@@ -114,5 +114,4 @@ ApplicationWindow
             AppLoader.appMouse = appMouse
         }
     }
-
 }

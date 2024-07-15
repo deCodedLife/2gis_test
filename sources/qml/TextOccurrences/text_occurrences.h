@@ -16,13 +16,13 @@ class TextOccurrences : public QObject
 
 public:
     explicit TextOccurrences(QObject *parent = nullptr);
-
+    Q_INVOKABLE void start();
 
 private slots:
     void textParsed(Occurrences);
 
 
-// QML
+// QML properties
 public:
     uint wordsCount();
     bool isBusy();

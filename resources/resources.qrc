@@ -3,13 +3,11 @@
         <file>qml/Main.qml</file>
         <file>qml/Base/AppWindow.qml</file>
         <file>qml/Base/AppLoader.qml</file>
-        <file>qml/Base/PopupRectangle.qml</file>
         <file>qml/Settings.qml</file>
         <file>qml/States/AppHeader.qml</file>
         <file>qml/Pages/HomePage.qml</file>
         <file>qml/Base/AppPage.qml</file>
         <file>qml/Components/AppTopBar.qml</file>
-        <file>qml/Base/PageLoader.qml</file>
         <file>qml/qmldir</file>
         <file>qml/qtquickcontrols2.conf</file>
         <file>Images/add.svg</file>
@@ -18,7 +16,12 @@
         <file>qml/Pages/WelcomeScreen.qml</file>
         <file>qml/Pages/Options.qml</file>
         <file>Images/tune.svg</file>
-        <file>qml/Base/AppBottomSheet.qml</file>
         <file>qml/States/BottomSheet.qml</file>
+        <file>qml/Components/StatusBar.qml</file>
+        <file>qml/Components/PageLoader.qml</file>
+        <file>qml/Components/AppBottomSheet.qml</file>
+        <file>qml/Base/PopupRectangle.qml</file>
+        <file>Images/stop.svg</file>
+        <file>Images/pause.svg</file>
     </qresource>
 </RCC>

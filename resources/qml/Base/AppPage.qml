@@ -41,6 +41,6 @@ Item
 
     onHeightChanged: {
         height = pageHeight
-        AppLoader.pageHeight = pageHeight
+        AppLoader.pageHeight = height
     }
 }

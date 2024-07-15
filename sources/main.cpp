@@ -9,11 +9,11 @@
 int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
-    TextOccurrences test = TextOccurrences();
 
     QQmlApplicationEngine engine;
     QQmlContext *ctx = engine.rootContext();
-    // ctx->setContextProperty( "SERVER", m_serverAddress );
+
+    qmlRegisterType<TextOccurrences>( "TextOccurrences", 0, 1, "TextOccurences" );
     ctx->setContextProperty( "QML", "qrc:/qml" );
     ctx->setContextProperty( "IMAGES", "qrc:/Images" );
 

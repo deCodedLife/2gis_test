@@ -119,6 +119,8 @@ Rectangle {
                         rightPadding: 0
                         onClicked: {
                             icon.color = Material.accentColor
+                            AppLoader.pageHeight = 0
+                            AppLoader.reloadFlickable()
                             if ( modelData[ "useEffect" ] ) AppLoader.openEffect( modelData[ "action" ] )
                             else modelData[ "action" ]()
                             defaultColor.start()

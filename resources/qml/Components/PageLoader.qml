@@ -26,7 +26,9 @@ Item {
         Connections {
             target: AppLoader
             function onReloadFlickable() {
-                flickable.contentY = AppLoader.pageHeight
+                flickable.contentY = 0
+                loader.height = 0
+                loader.height = body.height
             }
         }
 

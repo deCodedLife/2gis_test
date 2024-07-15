@@ -6,5 +6,5 @@ singleton BottomSheet States/BottomSheet.qml
 AppWindow Base/AppWindow.qml
 AppTopBar Components/AppTopBar.qml
 AppPage Base/AppPage.qml
-PageLoader Base/PageLoader.qml
-PopupRectangle Base/PopupRectangle.qml
+PageLoader Components/PageLoader.qml
+PopupRectangle Components/PopupRectangle.qml

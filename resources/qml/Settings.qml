@@ -27,4 +27,7 @@ QtObject
     property int currentTheme: Material.Dark
     property int currentAccent: Material.Green
     property string defaultTextColor: "white"
+
+    property int wordsCount: 15
+    property string selectedFile: ""
 }

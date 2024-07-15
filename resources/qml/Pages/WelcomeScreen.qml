@@ -15,7 +15,7 @@ AppPage {
         "с расширением .txt Вы можете воспользоваться генератором текста " +
         "fish-text.ru"
 
-    height: pageHeight
+    height: parent.height
     pageHeight: parent.height
 
     ColumnLayout
