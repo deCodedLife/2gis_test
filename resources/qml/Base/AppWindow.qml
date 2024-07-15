@@ -22,7 +22,7 @@ ApplicationWindow
 
     visible: true
     signal afterInit()
-    flags: Qt.WindowStaysOnTopHint
+//    flags: Qt.WindowStaysOnTopHint
 
     ColumnLayout {
         anchors.fill: parent

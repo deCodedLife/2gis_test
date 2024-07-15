@@ -7,10 +7,11 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 
 
-find_package(Qt6 6.7 REQUIRED COMPONENTS Quick ChartsQml Charts)
+find_package(Qt6 6.5 REQUIRED COMPONENTS Quick ChartsQml Charts)
 
 qt_standard_project_setup()
 qt_add_executable(app2GIS_test
+    ${CMAKE_CURRENT_SOURCE_DIR}/resources/2gis.rc
     ${CMAKE_CURRENT_SOURCE_DIR}/sources/main.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/resources/resources.qrc
 )

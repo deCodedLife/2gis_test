@@ -5,6 +5,8 @@ RunnableWrapper::RunnableWrapper(QString fileName, uint amount):
     _userFile(QFile(fileName)),
     _wordsAmount(amount)
 {
+    _isPaused = false;
+    _stopSended = false;
 }
 
 void RunnableWrapper::run()
@@ -20,11 +22,12 @@ void RunnableWrapper::run()
 
     text.replace(QRegularExpression("(?:\\.|\\,|\\:|!|\\?)"), "");
     text.replace("\n", " ");
+    text.replace("\r", " ");
 
     QList<QString> wordsList = text.split(" ");
     emit wordsSummary(wordsList.count());
 
-
+    qDebug() << _isPaused  << _stopSended;
     for (QString word : wordsList) {
 
         /**
