@@ -22,6 +22,10 @@ public:
     explicit RunnableWrapper(QString fileName, uint amount);
     void run() override;
 
+public slots:
+    void pause();
+    void resume();
+    void stop();
 
 signals:
     void wordsSummary(uint);
@@ -34,6 +38,8 @@ private:
 
 private:
     uint _wordsAmount;
+    bool _isPaused;
+    bool _stopSended;
     QFile _userFile;
 
     QHash<QString, int> _words;

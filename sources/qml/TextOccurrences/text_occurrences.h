@@ -46,6 +46,11 @@ public:
     void setWordsCount(uint);
 
 signals:
+    void pauseSended();
+    void resumeSended();
+    void stopSended();
+
+signals:
     void wordsSummaryChanged(uint);
     void wordsParsedChanged(uint);
     void wordsCountChanged(uint);

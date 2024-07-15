@@ -84,21 +84,18 @@ AppPage {
             }
 
             function stop() {
-                words = defaultWords
-                values = defaultValues
-                xAxis.min = 0
-                xAxis.max = 5
-                hide()
+                parser.stop()
+                isPaused = false
             }
 
             function pause() {
                 if ( isPaused ) {
                     isPaused = false
-                    console.log( "play" )
+                    parser.resume()
                 }
                 else {
                     isPaused = true
-                    console.log( "pause" )
+                    parser.pause()
                 }
             }
         }
@@ -182,6 +179,10 @@ AppPage {
             else statusBar.hide();
         }
 
+        function onStopSended() {
+            bugfix.start()
+        }
+
         function onValuesChanged( newValues ) {
             let maxX = 0
             newValues.map( ( num ) => {
@@ -195,6 +196,22 @@ AppPage {
 
         function onLabelsChanged( newLabels ) {
             words = newLabels
+        }
+    }
+
+    Timer {
+        id: bugfix
+        interval: 200
+        repeat: false
+        onTriggered: {
+            words = []
+            values = []
+
+            words = defaultWords
+            values = defaultValues
+
+            xAxis.min = 0
+            xAxis.max = 5
         }
     }
 

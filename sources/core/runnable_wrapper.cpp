@@ -26,6 +26,15 @@ void RunnableWrapper::run()
 
 
     for (QString word : wordsList) {
+
+        /**
+         * Handle pause and stop
+         */
+        while (_isPaused && !_stopSended) {
+            QThread::currentThread()->msleep(100);
+        }
+        if (_stopSended) return;
+
         QThread::currentThread()->msleep(3);
         emit nextWord();
 
@@ -39,6 +48,21 @@ void RunnableWrapper::run()
     }
 
     emit finished();
+}
+
+void RunnableWrapper::pause()
+{
+    _isPaused = true;
+}
+
+void RunnableWrapper::resume()
+{
+    _isPaused = false;
+}
+
+void RunnableWrapper::stop()
+{
+    _stopSended = true;
 }
 
 

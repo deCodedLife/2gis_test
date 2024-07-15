@@ -129,6 +129,10 @@ Item {
 
     function hide() {
         state = "closed"
+
+        let buff = base.options
+        base.options = []
+        base.options = buff
     }
 
     function addOption( icon, nextIcon = "", action, useEffect = false ) {

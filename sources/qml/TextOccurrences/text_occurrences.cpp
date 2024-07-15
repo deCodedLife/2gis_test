@@ -32,6 +32,10 @@ void TextOccurrences::start()
         emit busyChanged(false);
     });
 
+    connect(this, &TextOccurrences::pauseSended, parser, &RunnableWrapper::pause);
+    connect(this, &TextOccurrences::resumeSended, parser, &RunnableWrapper::resume);
+    connect(this, &TextOccurrences::stopSended, parser, &RunnableWrapper::stop);
+
 
     connect(parser, &RunnableWrapper::wordsSorted, this, [&](Occurrences list){
         _labels.clear();
@@ -49,9 +53,11 @@ void TextOccurrences::start()
     QThreadPool::globalInstance()->start(parser);
 }
 
-void TextOccurrences::pause()
-{
-
+void TextOccurrences::pause() {emit pauseSended();}
+void TextOccurrences::resume() {emit resumeSended();}
+void TextOccurrences::stop() {
+    emit stopSended();
+    emit busyChanged(false);
 }
 
 uint TextOccurrences::wordsSummary() {return _wordsSummary;}
