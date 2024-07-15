@@ -13,9 +13,6 @@ qt_standard_project_setup()
 qt_add_executable(app2GIS_test
     ${CMAKE_CURRENT_SOURCE_DIR}/sources/main.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/resources/resources.qrc
-    sources/core/text_parser.h sources/core/text_parser.cpp
-    sources/core/runnable_wrapper.h sources/core/runnable_wrapper.cpp
-    sources/core/types.h
 )
 
 

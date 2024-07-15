@@ -1,22 +1,42 @@
-#ifndef RUNNABLEWRAPPER_H
-#define RUNNABLEWRAPPER_H
-
-#include <functional>
+#pragma once
 
 #include <QObject>
 #include <QRunnable>
+#include <QThread>
 
-template <typename T, typename A>
-class RunnableWrapper : public QRunnable
+#include <QFile>
+#include <QDebug>
+#include <QJsonObject>
+
+#include <string>
+#include <algorithm>
+#include <unordered_map>
+#include <vector>
+
+typedef std::vector<std::pair<std::string, int>> Occurrences;
+
+class RunnableWrapper : public QObject, public QRunnable
 {
+    Q_OBJECT
 public:
-    explicit RunnableWrapper(std::function<T(A)>);
+    explicit RunnableWrapper(QString fileName, uint amount);
     void run() override;
 
 
 signals:
+    void wordsSummary(uint);
+    void wordsSorted(Occurrences);
+    void nextWord();
     void finished();
 
-};
+private:
+    void sort();
 
-#endif // RUNNABLEWRAPPER_H
+private:
+    uint _wordsAmount;
+    QFile _userFile;
+
+    QHash<QString, int> _words;
+    Occurrences _wordsBuff;
+
+};

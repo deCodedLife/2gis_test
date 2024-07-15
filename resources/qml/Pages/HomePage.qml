@@ -29,7 +29,7 @@ AppPage {
         property string description: ""
 
         anchors.centerIn: parent
-        width: parent.height / 1.5
+        width: parent.width / 1.5
 
         title: ""
         visible: false
@@ -62,8 +62,11 @@ AppPage {
 
         StatusBar {
             id: statusBar
+
             title: "Загрузка данных"
-            value: 20
+            value: parser.wordsParsed
+            min: 0
+            max: parser.wordsSummary
 
             property bool isPaused: false
 
@@ -81,7 +84,10 @@ AppPage {
             }
 
             function stop() {
-                console.log( "stoped" )
+                words = defaultWords
+                values = defaultValues
+                xAxis.min = 0
+                xAxis.max = 5
                 hide()
             }
 
@@ -98,17 +104,42 @@ AppPage {
         }
 
         ChartView {
+            id: chart
+
             Layout.fillWidth: true
-            height: words.length * 100
+            height: words.length * 80
+            implicitHeight: words.length * 80
 
             title: "Вхождения слов"
             antialiasing: true
 
-            HorizontalBarSeries {
+            titleColor: "white"
+            backgroundColor: Material.dialogColor
 
+            HorizontalBarSeries {
                 id: mySeries
-                axisY: BarCategoryAxis { categories: page.words }
-                BarSet { label: "Количество"; values: page.values }
+                axisY: BarCategoryAxis {
+                    labelsColor: "white"
+                    categories: page.words
+                    gridLineColor: "transparent"
+                }
+                axisX: ValueAxis {
+                    id: xAxis
+                    tickCount: 5
+                    gridVisible: false
+                    labelsColor: "white"
+                    labelFormat: "%i"
+                    min: 0
+                    max: 5
+                }
+                BarSet {
+                    id: barset
+                    label: "Количество"
+                    labelColor: "white"
+                    borderColor: "transparent"
+                    color: Material.color(Material.Green, Material.Shade200)
+                    values: page.values
+                }
             }
         }
 
@@ -131,7 +162,6 @@ AppPage {
                     return
                 }
                 parser.start()
-                statusBar.show()
             }
         }
     }
@@ -142,6 +172,30 @@ AppPage {
         AppHeader.title = ""
         AppHeader.addOption( "tune.svg", () => BottomSheet.open() )
         BottomSheet.loadPage( "Pages/Options.qml" )
+    }
+
+    Connections {
+        target: parser
+
+        function onBusyChanged( state ) {
+            if ( state ) statusBar.show();
+            else statusBar.hide();
+        }
+
+        function onValuesChanged( newValues ) {
+            let maxX = 0
+            newValues.map( ( num ) => {
+                // if ( value < minX ) minX = value
+                if ( num > maxX ) maxX = num
+            } )
+            xAxis.min = 0
+            xAxis.max = maxX
+            values = newValues
+        }
+
+        function onLabelsChanged( newLabels ) {
+            words = newLabels
+        }
     }
 
     TextOccurences {
